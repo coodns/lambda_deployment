@@ -17,11 +17,12 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::YOUR_ACCOUNT_ID:role/GitHubActionRole
+          role-to-assume:  ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ap-northeast-2
       
       - name: Deploy Lambda Function
         uses: aws-actions/aws-lambda-deploy@v1
         with:
-          function-name: my-lambda-function
+          function-name: test-github-actions-updates
           code-artifacts-dir: ./dist
+
