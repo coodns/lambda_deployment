@@ -24,6 +24,7 @@ jobs:
       - name: Deploy Lambda Function
         uses: aws-actions/aws-lambda-deploy@v1
         with:
+          role: ${{ secrets.AWS_ROLE_ARN }}
           function-name: test-github-actions-updates
           code-artifacts-dir: ./
 
